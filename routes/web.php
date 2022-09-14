@@ -26,7 +26,6 @@ function getContacts($id = null)
         return $contacts[$id];
     } else {
         return $contacts; 
-        
     }
 }
 
