@@ -22,7 +22,7 @@ function getContacts($id = null)
     ];
     if (isset($id)) {
 
-        abort_unless(!isset($contacts[$id]), '404');
+        abort_unless(isset($contacts[$id]), '404');
         return $contacts[$id];
     } else {
         return $contacts; 
