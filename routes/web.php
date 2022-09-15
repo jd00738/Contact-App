@@ -25,7 +25,22 @@ function getContacts($id = null)
         abort_unless(isset($contacts[$id]), '404');
         return $contacts[$id];
     } else {
-        return $contacts; 
+        return $contacts;
+    }
+}
+
+function getCompanies($id = null)
+{
+    $companies = [
+        1 => ['name' => 'Company One', 'contacts' => 3],
+        2 => ['name' => 'Company Two', 'contacts' => 5],
+    ];
+    if (isset($id)) {
+
+        abort_unless(isset($companies[$id]), '404');
+        return $companies[$id];
+    } else {
+        return $companies;
     }
 }
 
@@ -41,7 +56,8 @@ Route::get('/', function () {
 
 Route::get('/contacts', function () {
     $contacts = getContacts();
-    return view('contacts.index', compact('contacts'));
+    $companies = getCompanies();
+    return view('contacts.index', compact('contacts', 'companies'));
 })->name('contacts.index');
 
 
