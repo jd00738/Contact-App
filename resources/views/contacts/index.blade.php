@@ -32,49 +32,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($contacts as $id => $cont)
-                                    @continue($id==1)
-                                    @break($id==3)
-                                        <tr @if ($loop->even) class="table-primary" @endif>
-                                            <th scope="row"> {{$loop->index}}</th>
-                                            <td>{{ $cont['name'] }}</td>
-                                            <td>{{ $cont['phone'] }}</td>
-                                            <td>alfred@test.com</td>
-                                            <td>Company one</td>
-                                            <td width="150">
-                                                <a href="{{ route('contacts.show', $id) }}"
-                                                    class="btn btn-sm btn-circle btn-outline-info" title="Show"><i
-                                                        class="fa fa-eye"></i></a>
-                                                <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary"
-                                                    title="Edit"><i class="fa fa-edit"></i></a>
-                                                <a href="#" class="btn btn-sm btn-circle btn-outline-danger"
-                                                    title="Delete" onclick="confirm('Are you sure?')"><i
-                                                        class="fa fa-times"></i></a>
-                                            </td>
-                                        </tr>
+                                    {{-- @forelse($contacts as $id => $cont) --}}
+                                    {{-- @continue($id==1)
+                                    @break($id==3) --}}
+                                    {{-- @include('contacts._contact', ['contact' => $cont])
                                     @empty
                                         <p> No Contact Found </p>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                    @endforelse --}}
 
-                        <nav class="mt-4">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                                    @each('contacts._contact', $contacts, 'cont', 'contacts._empty')
+                                </tbody>
+                            </table>
+
+                            <nav class="mt-4">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 @endsection
