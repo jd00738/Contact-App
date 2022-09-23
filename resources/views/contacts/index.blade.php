@@ -33,8 +33,10 @@
                                 </thead>
                                 <tbody>
                                     @forelse($contacts as $id => $cont)
-                                        <tr>
-                                            <th scope="row">1</th>
+                                    {{-- @continue($id==1)
+                                    @break($id==3) --}}
+                                        <tr @if ($loop->even) class="table-primary" @endif>
+                                            <th scope="row"> {{$loop->index}}</th>
                                             <td>{{ $cont['name'] }}</td>
                                             <td>{{ $cont['phone'] }}</td>
                                             <td>alfred@test.com</td>
